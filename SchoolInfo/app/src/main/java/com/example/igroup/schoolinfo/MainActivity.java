@@ -37,7 +37,8 @@ private RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_school_data_form);
+       /* setContentView(R.layout.activity_main);
         Fresco.initialize(this);
         recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -45,7 +46,7 @@ private RecyclerView recyclerView;
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SchoolAdapter());
+        recyclerView.setAdapter(new SchoolAdapter());*/
     }
 
 }

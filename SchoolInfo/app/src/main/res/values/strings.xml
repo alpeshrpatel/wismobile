@@ -3,4 +3,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string-array name="school_type">
+        <item name="type">School Type</item>
+        <item name="Public">Public</item>
+        <item name = "Private">Private</item>
+        <item name="International">International</item>
+    </string-array>
+
 </resources>
