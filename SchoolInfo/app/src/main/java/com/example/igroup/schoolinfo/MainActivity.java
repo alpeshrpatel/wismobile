@@ -1,5 +1,8 @@
 package com.example.igroup.schoolinfo;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -8,45 +11,86 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.facebook.drawee.backends.pipeline.Fresco;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
-private RecyclerView recyclerView;
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                   // mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_dashboard:
-                    //mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_notifications:
-                   // mTextMessage.setText(R.string.title_notifications);
-                    return true;
-            }
-            return false;
-        }
-    };
-
+    Fragment selectedFragment= null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_school_data_form);
-       /* setContentView(R.layout.activity_main);
-        Fresco.initialize(this);
-        recyclerView = (RecyclerView)findViewById(R.id.recyclerView);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new SchoolAdapter());*/
+        setContentView(R.layout.activity_main);
+       BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+       // navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        if(navigation.getSelectedItemId() == R.id.navigation_home)
+        {
+          selectedFragment = new Fragment_SchoolList().newInstance();
+          setFragment(selectedFragment);
+
+        }
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //Fragment selectedFragment = null;
+                switch (item.getItemId()) {
+                    case R.id.navigation_home:
+                        setTitle(R.string.title_home);
+                        selectedFragment = new Fragment_SchoolList().newInstance();
+                        break;
+                    case R.id.navigation_dashboard:
+                        setTitle(R.string.title_dashboard);
+                        selectedFragment = new Fragment_SchoolInfoForm().newInstance();
+                        break;
+                    case R.id.navigation_notifications:
+                        setTitle(R.string.title_notifications);
+                        Toast.makeText(getApplicationContext(),"Under Process",Toast.LENGTH_SHORT).show();
+                        break;
+
+                }
+
+                setFragment(selectedFragment);
+
+                return true;
+            }
+
+
+        });
+
+        fetchJsonResponse();
+
     }
 
+    private void fetchJsonResponse() {
+
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, "http://192.168.0.10:4000/api/schools", new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                System.out.println("GET CALL JSON:"+response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                System.out.println("ERROR:"+error);
+            }
+        });
+
+        VolleySingleton.getmInstance(this).addToRequestque(request);
+    }
+
+    private void setFragment(Fragment selectedFragment) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_layout,selectedFragment);
+        transaction.commit();
+    }
 }

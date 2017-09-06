@@ -3,6 +3,34 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="school_name">School Name</string>
+    <string name="address">Address</string>
+    <string name="city">City</string>
+    <string name="zipcode">Zipcode</string>
+    <string name="state">State</string>
+    <string name="country">Country</string>
+    <string name="boys_num">Number of Boys</string>
+    <string name="girls_num">Number of Girls</string>
+    <string name="male_teachers_num">Number Of Male teacher</string>
+    <string name="female_teachers_num">Number Of Female teacher</string>
+    <string name="levels_taught">Levels Taught</string>
+    <string name="daycare">Daycare</string>
+    <string name="kg">KG</string>
+    <string name="primary">Primary</string>
+    <string name="secondary">Secondary</string>
+    <string name="higher">Higher</string>
+    <string name="website">Website</string>
+    <string name="school_start_time">School Start time</string>
+    <string name="school_end_time">School End time</string>
+    <string name="email">Email Address</string>
+    <string name="phone">Phone number</string>
+
+
+
+
+
+
+
 
     <string-array name="school_type">
         <item name="type">School Type</item>

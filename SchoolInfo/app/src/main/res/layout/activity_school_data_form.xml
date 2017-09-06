@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -33,7 +35,7 @@
                 android:id="@+id/input_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="School Name"
+                android:hint="@string/school_name"
                 android:inputType="textCapWords" />
         </android.support.design.widget.TextInputLayout>
 
@@ -46,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Address" />
+                android:hint="@string/address" />
         </android.support.design.widget.TextInputLayout>
 
         <!-- Password Label -->
@@ -59,7 +61,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="City"/>
+                android:hint="@string/city"/>
         </android.support.design.widget.TextInputLayout>
 
 
@@ -73,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="zipcode"/>
+                android:hint="@string/zipcode"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -84,7 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="state"/>
+                android:hint="@string/state"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -95,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPostalAddress"
-                android:hint="country"/>
+                android:hint="@string/country"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -107,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Number of Boys"/>
+                android:hint="@string/boys_num"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -118,7 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Number of Girls"/>
+                android:hint="@string/girls_num"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -130,7 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Number Of Male teacher"/>
+                android:hint="@string/male_teachers_num"/>
         </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -141,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Number Of Female teacher"/>
+                android:hint="@string/female_teachers_num"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatSpinner
@@ -169,7 +171,7 @@
                 <android.support.v7.widget.AppCompatTextView
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:hint="Levels Taught"
+                    android:hint="@string/levels_taught"
                     android:layout_weight="1"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"/>
             </LinearLayout>
@@ -185,21 +187,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="daycare"/>
+                    android:hint="@string/daycare"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/radio_kg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="KG"/>
+                    android:hint="@string/kg"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/radio_primary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Primary"/>
+                    android:hint="@string/primary"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -215,56 +217,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Secondary"/>
+                    android:hint="@string/secondary"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/radio_higher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Higher"
-
+                    android:hint="@string/higher"
                     />
 
             </LinearLayout>
 
 
-
-       <!-- <android.support.v7.widget.AppCompatRadioButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-            <RadioButton
-                android:id="@+id/radio_daycare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="DayCare" />
-            <RadioButton
-                android:id="@+id/radio_kg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="KG" />
-            <RadioButton
-                android:id="@+id/radio_primary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Primary" />
-            <RadioButton
-                android:id="@+id/radio_secondary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Secondary" />
-            <RadioButton
-                android:id="@+id/radio_high"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Higher" />
-
-
-
-        </android.support.v7.widget.AppCompatRadioButton>
--->
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -274,7 +239,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textWebEditText"
-                android:hint="website"/>
+                android:hint="@string/website"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -286,7 +251,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
-                android:hint="School starting time"/>
+                android:hint="@string/school_start_time"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -298,7 +263,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="time"
-                android:hint="School end time"/>
+                android:hint="@string/school_end_time"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -310,7 +275,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:hint="Email Address"/>
+                android:hint="@string/email"/>
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
@@ -322,7 +287,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:hint="Phone number"/>
+                android:hint="@string/phone"/>
         </android.support.design.widget.TextInputLayout>
 
         <!-- Signup Button -->
@@ -336,7 +301,6 @@
             android:text="Submit data"/>
 
 
-
         <TextView android:id="@+id/link_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -347,3 +311,6 @@
 
     </LinearLayout>
 </ScrollView>
+
+
+
