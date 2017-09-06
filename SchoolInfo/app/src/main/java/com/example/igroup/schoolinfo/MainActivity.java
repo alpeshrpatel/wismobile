@@ -18,10 +18,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,10 +79,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void fetchJsonResponse() {
 
-        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, "http://192.168.0.10:4000/api/schools", new Response.Listener<JSONArray>() {
+        StringRequest request = new StringRequest(Request.Method.GET, "http://192.168.0.10:4000/api/schools", new Response.Listener<String>() {
             @Override
-            public void onResponse(JSONArray response) {
-                System.out.println("GET CALL JSON:"+response.toString());
+            public void onResponse(String response) {
+                //System.out.println("GET CALL JSON:"+response.toString());
+
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+                List<School> list = Arrays.asList(gson.fromJson(response,School[].class));
+                System.out.println("GSON:"+list.get(1));
+
+
             }
         }, new Response.ErrorListener() {
             @Override
