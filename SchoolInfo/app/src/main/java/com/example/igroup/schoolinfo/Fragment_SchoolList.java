@@ -4,7 +4,6 @@ import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+
+import java.util.List;
 
 /**
  * Created by iGroup on 9/5/2017.
@@ -21,12 +22,13 @@ public class Fragment_SchoolList extends Fragment {
 
     private RecyclerView recyclerView;
     private  Context context;
+    private static List<School> schoolList;
 
 
 
-    public static Fragment_SchoolList newInstance()
+    public static Fragment_SchoolList newInstance(List<School> list)
     {
-
+        schoolList = list;
         Fragment_SchoolList fragment_schoolList = new Fragment_SchoolList();
         return fragment_schoolList;
 
@@ -48,7 +50,7 @@ public class Fragment_SchoolList extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new SchoolAdapter());
+        recyclerView.setAdapter(new SchoolAdapter(schoolList));
         return view;
     }
 }

@@ -20,6 +20,7 @@ public class VolleySingleton {
         ctx = context;
         requestQueue = getRequestQueue();
     }
+
 public RequestQueue getRequestQueue()
 {
     if (requestQueue == null)

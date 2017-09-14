@@ -147,6 +147,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/spn_school_type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -183,21 +184,21 @@
 
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/radio_daycare"
+                    android:id="@+id/chkbx_daycare"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/daycare"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/radio_kg"
+                    android:id="@+id/chkbx_kg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/kg"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/radio_primary"
+                    android:id="@+id/chkbx_primary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -213,14 +214,14 @@
                 android:layout_marginBottom="8dp"
                 android:orientation="horizontal">
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/radio_secondary"
+                    android:id="@+id/chkbx_secondary"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:hint="@string/secondary"/>
 
                 <android.support.v7.widget.AppCompatCheckBox
-                    android:id="@+id/radio_higher"
+                    android:id="@+id/chkbx_higher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -290,7 +291,7 @@
                 android:hint="@string/phone"/>
         </android.support.design.widget.TextInputLayout>
 
-        <!-- Signup Button -->
+        <!-- Submit Button -->
         <android.support.v7.widget.AppCompatButton
             android:id="@+id/btn_save"
             android:layout_width="fill_parent"
@@ -300,14 +301,6 @@
             android:padding="12dp"
             android:text="Submit data"/>
 
-
-        <TextView android:id="@+id/link_login"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="Already a member? Login"
-            android:gravity="center"
-            android:textSize="16dip"/>
 
     </LinearLayout>
 </ScrollView>
