@@ -1,4 +1,4 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
+import com.example.igroup.schoolinfo.Activities.MainActivity;
+import com.example.igroup.schoolinfo.Extras.MyApplication;
+import com.example.igroup.schoolinfo.Pojo.School;
+import com.example.igroup.schoolinfo.R;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -21,13 +25,15 @@ public class SchoolAdapter extends RecyclerView.Adapter<SchoolAdapter.ViewHolder
 
     private LayoutInflater layoutInflater;
     List<School> schoolList;
-    SchoolAdapter(List<School> list)
+    MyApplication myApplication;
+    public SchoolAdapter(List<School> list, MainActivity mainActivity)
     {
         schoolList = list;
+        myApplication = new MyApplication(mainActivity);
     }
     @Override
     public SchoolAdapter.ViewHolderSchool onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_row_school_list,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_row_school_list1,parent,false);
         ViewHolderSchool viewHolderSchool = new ViewHolderSchool(v);
         return viewHolderSchool;
     }
@@ -55,6 +61,9 @@ public class SchoolAdapter extends RecyclerView.Adapter<SchoolAdapter.ViewHolder
         public ViewHolderSchool(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+            myApplication.setTypeface(schoolname);
+            myApplication.setTypeface(address);
+            myApplication.setTypeface(email);
          /*       schoolname =(TextView)itemView.findViewById(R.id.schoolName);
                 address =(TextView)itemView.findViewById(R.id.address);
                 email = (TextView)itemView.findViewById(R.id.email);

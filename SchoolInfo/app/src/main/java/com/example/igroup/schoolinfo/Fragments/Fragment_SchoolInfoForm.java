@@ -1,4 +1,4 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Fragments;
 
 
 import android.app.Fragment;
@@ -18,7 +18,9 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.google.gson.JsonObject;
+import com.example.igroup.schoolinfo.Extras.Constants;
+import com.example.igroup.schoolinfo.Network.VolleySingleton;
+import com.example.igroup.schoolinfo.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +28,6 @@ import org.json.JSONObject;
 //import butterknife.Bind;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import butterknife.Unbinder;
 
 
@@ -157,7 +158,7 @@ public class Fragment_SchoolInfoForm extends Fragment {
               e.printStackTrace();
           }
 
-          JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, "http://192.168.0.20:4000/api/schools", schoolObject, new Response.Listener<JSONObject>() {
+          JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, Constants.API, schoolObject, new Response.Listener<JSONObject>() {
               @Override
               public void onResponse(JSONObject response) {
                   System.out.println("POST REQUEST RESPONSE:-->" + response.toString());

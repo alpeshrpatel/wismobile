@@ -1,4 +1,4 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Fragments;
 
 import android.app.Fragment;
 import android.content.Context;
@@ -10,6 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.igroup.schoolinfo.Activities.MainActivity;
+import com.example.igroup.schoolinfo.Adapters.SchoolAdapter;
+import com.example.igroup.schoolinfo.Pojo.School;
+import com.example.igroup.schoolinfo.R;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
 import java.util.List;
@@ -23,13 +27,16 @@ public class Fragment_SchoolList extends Fragment {
     private RecyclerView recyclerView;
     private  Context context;
     private static List<School> schoolList;
+    static MainActivity mainActivity;
 
 
 
-    public static Fragment_SchoolList newInstance(List<School> list)
+    public static Fragment_SchoolList newInstance(List<School> list, MainActivity ma)
     {
         schoolList = list;
+        mainActivity = ma;
         Fragment_SchoolList fragment_schoolList = new Fragment_SchoolList();
+
         return fragment_schoolList;
 
     }
@@ -50,7 +57,7 @@ public class Fragment_SchoolList extends Fragment {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(new SchoolAdapter(schoolList));
+        recyclerView.setAdapter(new SchoolAdapter(schoolList,mainActivity));
         return view;
     }
 }

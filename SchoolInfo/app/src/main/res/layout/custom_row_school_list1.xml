@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/clientCard"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:id="@+id/cv"
+        android:background="@drawable/custom_bg_card"
+        android:clickable="true"
+        android:layout_margin="2dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp"
+            >
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/clientImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:layout_gravity="center"
+                fresco:placeholderImageScaleType="fitCenter"
+                fresco:failureImage="@drawable/profilepicture"
+                android:layout_margin="@dimen/table_top_margin"
+                fresco:placeholderImage="@drawable/ic_school"
+                fresco:actualImageScaleType="centerCrop"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+                />
+        <!--
+            <ImageView
+                android:src ="@drawable/profilepicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/person_photo"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="16dp"
+        />-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/schoolName"
+                android:layout_toRightOf="@+id/clientImage"
+                android:layout_alignParentTop="true"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/address"
+                android:layout_toRightOf="@+id/clientImage"
+                android:layout_below="@+id/schoolName"
+                />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/clientImage"
+                android:textSize="@dimen/head_medium_tittle_text"
+                android:textColor="@color/colorBlue"
+                android:layout_below="@+id/address"
+                android:ellipsize="end"
+                android:singleLine="true"/>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

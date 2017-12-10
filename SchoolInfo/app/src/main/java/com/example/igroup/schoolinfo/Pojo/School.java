@@ -1,6 +1,5 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Pojo;
 
-import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 

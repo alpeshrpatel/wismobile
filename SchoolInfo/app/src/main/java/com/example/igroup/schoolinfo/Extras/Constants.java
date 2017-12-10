@@ -1,10 +1,13 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Extras;
 
 /**
  * Created by iGroup on 9/13/2017.
  */
 
 public interface Constants {
+
+    String API ="http://192.168.0.13:4000/api/schools";
+    String NA="";
     String SCHOOL_NAME ="name";
     String SCHOOL_ADDRESS = "address";
     String CITY = "city";

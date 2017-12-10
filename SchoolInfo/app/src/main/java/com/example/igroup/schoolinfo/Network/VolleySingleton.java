@@ -1,4 +1,4 @@
-package com.example.igroup.schoolinfo;
+package com.example.igroup.schoolinfo.Network;
 
 import android.content.Context;
 
